@@ -3,7 +3,7 @@ module And_gate_tb;//module name declaration
 reg A, B;
 wire Y;
   
-  AND_gate tb (.Y(Y), .A(A), .B(B));//instantiation(connects input and ouput ofdesign and tb)
+  AND_gate and_gate2 (.Y(Y), .A(A), .B(B));//instantiation(connects input and ouput ofdesign and tb)
  
  //initial block for the code
 initial begin
