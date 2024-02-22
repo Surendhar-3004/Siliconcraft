@@ -13,19 +13,19 @@ module xorg_tb;//module name declaration
    //second initial block for monitoring and dumping
   initial begin
     $monitor("m",A, B, Y);
-//     $display("d",A, B, Y);
+    $display("d",A, B, Y);
     A = 1'b0; B = 1'b0;
-//     $monitor("m",A, B, Y);
+    $monitor("m",A, B, Y);
     $display("d",A, B, Y);
     #10 A = 1'b0; B = 1'b1;
-//     $monitor("m",A, B, Y);
+    $monitor("m",A, B, Y);
     $display("d",A, B, Y);
     #10 A = 1'b1; B = 1'b0;
-//     $monitor("m",A, B, Y);
+    $monitor("m",A, B, Y);
     $display("d",A, B, Y);
     #10 A = 1'b1; B = 1'b1;
     $monitor("m",A, B, Y);
-//     $display("d",A, B, Y);
+    $display("d",A, B, Y);
     #10
     $finish;
   end
