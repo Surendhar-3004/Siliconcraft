@@ -18,7 +18,7 @@ module binary_gray_tb;
   end
   
   initial begin
-    $monitor("%t | b0=%b | b1=%b | b2=%b | b3=%b | g0=%b | g1=%b | g2=%b | g3=%b |",$time,b0,b1,b2,b3,g0,g1,g2,g3);
+    $monitor("%t | b3=%b | b2=%b | b1=%b | b0=%b | g3=%b | g2=%b | g1=%b | g0=%b |",$time,b3,b2,b1,b0,g3,g2,g1,g0);
     $dumpfile("binary_gray.vcd");
     $dumpvars(1,binary_gray_tb);
   end
