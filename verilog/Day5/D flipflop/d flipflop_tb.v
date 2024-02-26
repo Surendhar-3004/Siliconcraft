@@ -5,13 +5,13 @@ module d_flipflop_tb;
   d_flipflop df(.d(d),.clk(clk),.reset(reset),.q(q));
   
   initial begin
-    clk=0;reset=1;d=1;
+    clk=1;reset=0;d=1;
 
     #20 $finish;
   end
   
-      always #4 clk = ~clk;
-  	  always #8 d = ~d;
+      always #1 clk = ~clk;
+  	  always #2 d = ~d;
       always #4 reset = ~reset;
   
   initial begin
