@@ -5,14 +5,15 @@ module d_flipflop_tb;
   d_flipflop df(.d(d),.clk(clk),.reset(reset),.q(q));
   
   initial begin
-    clk=1;reset=0;d=1;
-
-    #20 $finish;
+    clk=0;reset=1;d=0;
+     #2 reset=0;
+     #20 
+    $finish;
   end
   
-      always #1 clk = ~clk;
-  	  always #2 d = ~d;
-      always #4 reset = ~reset;
+      always #5 d = ~d;
+  	  always #2 clk = ~clk;
+     
   
   initial begin
     $monitor("%t | d=%b | clk=%b | reset=%b | q=%b",$time,d,clk,reset,q);
