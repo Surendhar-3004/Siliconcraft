@@ -1,8 +1,8 @@
 module tasks;
   integer ans;
-  task sum(integer a,b,output int c);
+  task sum(integer a,b,output int ans);
     begin
-      c=a+b;
+      ans=a+b;
     end
   endtask
       initial begin
