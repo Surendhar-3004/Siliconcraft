@@ -10,6 +10,6 @@ module odd_number;
   endtask
   
   initial begin
-    odd($5);
+    odd(5);
   end
 endmodule
