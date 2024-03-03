@@ -5,7 +5,6 @@ module shift_register_tb;
   shift_register sr(.a(a),.q(q));
   
   initial begin
-    repeat(2) 
     a=10101;
     #10
     $finish;
