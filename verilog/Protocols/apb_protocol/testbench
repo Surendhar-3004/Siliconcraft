@@ -1,1 +1,28 @@
+module apb_top_module_tb;
+  reg clk,reset,tr,write_en;
+  reg [3:0] datain,addr;
+  wire [3:0] rdata;
+  apb_top_module aa(.clk(clk),
+                    .reset(reset),
+                    .tr(tr),
+                    .write_en(write_en),
+                    .datain(datain),
+                    .addr(addr),
+                    .rdata(rdata));
+  always #5 clk=~clk;
+  initial begin
+    clk=1;
+    reset=1;
+    #10 reset=0;
+    tr=1;
+    write_en=1;
+    datain=4'b1110;
+    addr=4'b0101;
+    #30 write_en=0;
+    #40 $finish;
+  end
+  initial begin
+    $monitor("clk=%d reset=%d tr=%d write_en=%d datain=%d addr=%d,rdata=%d",clk,reset,tr,write_en,datain,addr,rdata);
+  end
+endmodule
 
