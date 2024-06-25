@@ -9,9 +9,9 @@ module two_state_datatype;
   initial begin
   $display("before initialization of bit_datatype %b",bit_datatype);
   $display("before initialization of byte_datatype %b",byte_datatype);
-    $display("before initialization of shortint_datatype %d",shortint_datatype);
-    $display("before initialization of int_datatype %d",int_datatype);
-    $display("before initialization of longint_datatype %d",longint_datatype);
+    $display("before initialization of shortint_datatype %b",shortint_datatype);
+    $display("before initialization of int_datatype %b",int_datatype);
+    $display("before initialization of longint_datatype %b",longint_datatype);
   
   bit_datatype=3'b011;
   byte_datatype=23;
@@ -20,9 +20,9 @@ module two_state_datatype;
   longint_datatype=57;
   
   $display("after initialization of bit_datatype %b",bit_datatype);
-  $display("after initialization of byte_datatype %d",byte_datatype);
-  $display("after initialization of shortint_datatype %d",shortint_datatype);
-  $display("after initialization of int_datatype %d",int_datatype);
+    $display("after initialization of byte_datatype %b",byte_datatype);
+    $display("after initialization of shortint_datatype %b",shortint_datatype);
+    $display("after initialization of int_datatype %b",int_datatype);
     $display("after initialization of longint_datatype %b",longint_datatype);
   end
   
