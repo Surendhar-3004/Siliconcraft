@@ -1,1 +1,110 @@
-
+module apb(clk,
+          reset,
+          addr,
+          datain,
+          tr,
+          sel,
+          enable,
+          write,
+          write_en,
+          paddr,
+          pdatain,
+          prdata,
+          rdata,
+          ready,
+          state,
+          next_state
+          );
+  
+  input clk,
+  		reset,
+  		tr,
+        write_en,
+  		ready;
+  
+  output reg sel,
+  		 write,
+  		enable;
+  
+  input reg[3:0] addr,
+  			 datain,
+  			 prdata;
+  
+  output reg[3:0] paddr,
+  			      pdatain,
+  			     rdata;
+  reg rdata1;
+  
+  parameter reg[1:0] idle=2'b00,
+  					 setup=2'b01,
+  					 access=2'b10;
+  output reg [1:0] state,next_state;
+  always @(posedge clk)begin
+     write<=write_en;
+    if(reset==1)
+      state<=idle;
+    else
+      state<=next_state;
+  end
+  
+  always @(state or tr or ready)begin
+    case(state)
+      
+      idle: begin
+        sel=0;
+        enable=0;
+        if(tr==1)
+          next_state<=setup;
+        else
+          next_state<=idle;
+      end
+      
+      setup:begin
+        sel=1;
+        enable=0;
+        if(write==1 & tr==1)begin
+          paddr<=addr;
+          pdatain<=datain;
+          next_state<=access;
+        end
+        else if(write==0 & tr==1)begin
+         paddr<=addr;
+          next_state<=access;
+        end
+      end
+        access:begin
+          sel=1;
+          enable=1;
+          if(ready==0)begin
+            if(write==1 &  tr==1)begin
+            paddr<=addr;
+            pdatain<=datain;
+           next_state<=access;
+          end
+          
+            else if(write==0 & tr==1)begin
+            paddr<=addr;
+            rdata<=prdata
+;
+            next_state<=access;
+            end
+          end
+          else 
+            if(ready==1)begin
+            if(write==1 & tr==1)begin
+              paddr<=addr;
+              pdatain<=datain;
+              next_state<=setup;
+            end
+              else if(write ==0 & tr==1)begin
+             paddr<=addr;
+              rdata<=prdata;
+              next_state<=idle;
+            end
+          end
+        end      
+    endcase
+  end
+endmodule
+  
+  			
