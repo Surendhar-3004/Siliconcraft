@@ -1,1 +1,41 @@
+`include "apb_master.v"
+`include "apb_slave.v"
 
+module apb_top_module( input clk,
+                      input reset,
+                     input  tr,
+                     input write_en,
+                      input [3:0]datain,
+                      input [3:0]addr,
+                      output [3:0]rdata
+);
+  wire sel,enable,write,ready;
+  wire [3:0] paddr,pdatain,prdata;
+  
+  apb instant1(clk,
+          reset,
+          addr,
+          datain,
+          tr,
+          sel,
+          enable,
+          write,
+          write_en,
+          paddr,
+          pdatain,
+          prdata,
+          rdata,
+          ready,
+          state,
+          next_state
+          );
+  
+  apb_slave instant2( clk,
+                  sel,
+                 enable,
+                 write,
+                  paddr,
+                pdatain,
+                   ready,
+                prdata);
+endmodule
