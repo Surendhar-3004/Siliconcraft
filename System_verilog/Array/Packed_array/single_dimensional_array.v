@@ -7,7 +7,7 @@ module single_packed_array_tb;
   end
   
   initial begin
-    for(int i=0; i<$size(array): i=i+1)
-      $display("array[%0d]=%0b,i,array[i]);
+    for(int i=0; i<$size(array); i=i+1)
+      $display("array[%0d]=%0b",i,array[i]);
                end
                endmodule
