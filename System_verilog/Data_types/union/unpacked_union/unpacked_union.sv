@@ -1,4 +1,4 @@
-module unpacked_union;
+;module unpacked_union;
   
   union{
     byte a;
@@ -9,7 +9,7 @@ module unpacked_union;
     
     unpack_union.b='hefcdba98;
     
-    $display("b=%h",unpack_union.b)
+    $display("b=%h",unpack_union.b);
     $display("a=%h",unpack_union.a);
     
     unpack_union.a='h34;
