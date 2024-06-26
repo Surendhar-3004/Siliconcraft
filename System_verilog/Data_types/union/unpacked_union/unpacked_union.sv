@@ -15,7 +15,7 @@ module unpacked_union;
     unpack_union.a='h34;
     
     $display("\n a = %0h", unpack_union.a );
-    $display("\n a = %0h", unpack_union.b );
+    $display("\n b = %0h", unpack_union.b );
     $display("\n unpack_union = %p", unpack_union);
     
   end
